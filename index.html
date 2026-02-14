@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음악 강사 조민주 | 공식 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 리셋 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Nanum Gothic', sans-serif; 
+            line-height: 1.6; 
+            color: #444; 
+            background-color: #ffffff; 
+            word-break: keep-all;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* 테마 색상 설정 */
+        :root {
+            --primary-purple: #9d8abf; 
+            --light-purple: #f8f4ff;   
+            --dark-purple: #6c5b7b;    
+            --accent-purple: #8675a9;
+            --kakao-yellow: #FEE500;
+        }
+
+        /* 헤더 & 네비게이션 */
+        header {
+            background: #fff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(157, 138, 191, 0.1);
+        }
+        .logo { 
+            font-family: 'Nanum Myeongjo', serif; 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            color: var(--dark-purple); 
+            letter-spacing: 1px;
+        }
+        nav ul { display: flex; gap: 30px; }
+        nav ul li a { font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary-purple); }
+
+        /* 히어로 섹션 */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(157, 138, 191, 0.5), rgba(255, 255, 255, 0.7)), 
+                        url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #444;
+            text-align: center;
+        }
+        .hero h1 { font-family: 'Nanum Myeongjo', serif; font-size: 3.2rem; margin-bottom: 10px; color: var(--dark-purple); }
+        .hero p { font-size: 1.2rem; letter-spacing: 2px; color: #555; }
+
+        /* 섹션 공통 */
+        section { padding: 80px 10%; }
+        h2 { font-family: 'Nanum Myeongjo', serif; font-size: 2.2rem; text-align: center; margin-bottom: 50px; color: var(--dark-purple); position: relative; }
+        h2::after { content: ''; display: block; width: 40px; height: 3px; background: var(--primary-purple); margin: 15px auto 0; }
+
+        /* 프로필 섹션 */
+        .profile { display: flex; align-items: center; gap: 60px; background: #fff; }
+        .profile-img { 
+            width: 350px; 
+            height: 450px; 
+            background: var(--light-purple); 
+            border-radius: 20px; 
+            overflow: hidden;
+            box-shadow: 15px 15px 0px var(--light-purple); 
+            flex-shrink: 0;
+        }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-text h3 { font-size: 1.6rem; margin-bottom: 25px; color: var(--primary-purple); font-family: 'Nanum Myeongjo', serif; }
+        .profile-text p { margin-bottom: 15px; font-size: 1.05rem; }
+        .career-list { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+        .career-list li { margin-bottom: 10px; color: #666; }
+
+        /* 커리큘럼 섹션 */
+        .curriculum-container { display: flex; flex-direction: column; gap: 40px; }
+        .curriculum-category { 
+            background: #fff; 
+            border-radius: 20px; 
+            padding: 40px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-purple);
+        }
+        .curriculum-category h3 { 
+            font-family: 'Nanum Myeongjo', serif; 
+            font-size: 1.8rem; 
+            color: var(--dark-purple); 
+            margin-bottom: 30px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .lesson-item { 
+            background: var(--light-purple); 
+            padding: 30px; 
+            border-radius: 15px; 
+            margin-bottom: 25px;
+        }
+        .lesson-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid rgba(157, 138, 191, 0.3);
+            padding-bottom: 15px;
+        }
+        .lesson-title { font-size: 1.3rem; font-weight: bold; color: var(--accent-purple); }
+        .lesson-info { text-align: right; font-size: 0.95rem; color: #777; line-height: 1.4; }
+        .lesson-info strong { color: var(--dark-purple); font-size: 1.1rem; }
+
+        .detail-list { margin-top: 15px; }
+        .detail-list li { margin-bottom: 8px; position: relative; padding-left: 20px; font-size: 0.95rem; }
+        .detail-list li::before { content: '•'; position: absolute; left: 0; color: var(--primary-purple); }
+        .sub-title { font-weight: bold; margin: 15px 0 10px; color: var(--dark-purple); display: block; }
+
+        .book-info { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 15px; font-size: 0.9rem; border-left: 4px solid var(--primary-purple); }
+        .piano-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        /* 문의 섹션 */
+        #contact { background: var(--light-purple); text-align: center; }
+        .contact-box { 
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px; 
+            background: #fff; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .contact-info { font-size: 1.3rem; color: var(--dark-purple); font-weight: bold; margin-top: 20px; margin-bottom: 30px; }
+        
+        /* 카카오 상담 버튼 스타일 */
+        .kakao-btn {
+            display: inline-block;
+            background-color: var(--kakao-yellow);
+            color: #3c1e1e;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .kakao-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background-color: #f7d600;
+        }
+
+        /* 푸터 */
+        footer { background: var(--dark-purple); color: #fff; padding: 40px; text-align: center; }
+        .copyright { font-size: 0.85rem; opacity: 0.7; margin-top: 10px; }
+
+        /* 반응형 */
+        @media (max-width: 992px) {
+            .profile { flex-direction: column; text-align: center; }
+            .profile-img { width: 300px; height: 400px; box-shadow: none; margin: 0 auto; }
+            .piano-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MIN JU MUSIC</div>
+        <nav>
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">프로필</a></li>
+                <li><a href="#lessons">커리큘럼</a></li>
+                <li><a href="#contact">문의하기</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>조민주 음악 스튜디오</h1>
+        <p>Compose Your Life with Harmony</p>
+    </section>
+
+    <section id="about" class="profile">
+        <div class="profile-img">
+            <img src="KakaoTalk_20260119_052709726.jpg" alt="조민주 강사님 프로필">
+        </div>
+        <div class="profile-text">
+            <h2>About Artist</h2>
+            <h3>"섬세한 감각으로 음악의 가치를 더합니다"</h3>
+            <p>안녕하세요, 이화여자대학교에서 작곡을 전공한 강사 조민주입니다. 이론적인 탄탄함과 풍부한 연주 경험을 바탕으로, 단순한 기술 전달을 넘어 음악적 영감을 공유하는 교육을 지향합니다.</p>
+            
+            <ul class="career-list">
+                <li>• <strong>이화여자대학교 음악대학 작곡과 수석 졸업</strong></li>
+                <li>• 다수 연주회 진행 및 참여</li>
+                <li>• 현) 김주농 여친</li>
+                <li>• 현) 모시기 음악 작곡 강사</li>
+                <li>• 전) 모시기 피아노 학원 강사</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="lessons">
+        <h2>Curriculum</h2>
+        
+        <div class="curriculum-container">
+            
+            <div class="curriculum-category">
+                <h3>🎵 작곡 (Composition)</h3>
+                
+                <div class="lesson-item">
+                    <div class="lesson-header">
+                        <span class="lesson-title">① 초등학생~성인 작곡 취미 레슨</span>
+                        <div class="lesson-info">
+                            <strong>50분 / 4.5만원</strong><br>
+                            교재비 없음 / 외부 연습실 별도
+                        </div>
+                    </div>
+                    <span class="sub-title">[수업 구성]</span>
+                    <ul class="detail-list">
+                        <li>작곡 + 기초 화성학 + 시창청음 + 컴퓨터 프로그램 활용(MIDI)</li>
+                        <li>작사·편곡·음악게임 등 다양한 음악 활동 포함</li>
+                        <li>한 과목만 선택해 집중 진행 가능 (금액 동일) / 그룹 수업 가능</li>
+                    </ul>
+                    <span class="sub-title">[진행 방식]</span>
+                    <ul class="detail-list">
+                        <li>매달 테마형 수업 (예: "머니코드로 작곡하기", "캐롤 작곡 프로젝트" 등)</li>
+                        <li>작곡, 음악교육, 음악치료 지식을 융합한 직접 설계형 커리큘럼</li>
+                        <li>아이부터 성인까지 만족도가 높은 실습 중심 수업</li>
+                    </ul>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-header">
+                        <span class="lesson-title">② 작곡 입시 전문 실기 & 시창청음</span>
+                        <div class="lesson-info">
+                            <strong>1시간 30분 / 7만원</strong><br>
+                            입시 맞춤형 1:1 커리큘럼
+                        </div>
+                    </div>
+                    <span class="sub-title">[작곡 실기 상세]</span>
+                    <ul class="detail-list">
+                        <li>화성 진행 기반 단선율 및 8마디 곡 완성</li>
+                        <li>성부 확장 및 입체적 사운드 구성 (ABA' 형식 등)</li>
+                        <li>실제 입시 기출 모티브 활용 및 내청(內聽) 작곡 훈련</li>
+                    </ul>
+                    <span class="sub-title">[시창청음 단계별 훈련]</span>
+                    <ul class="detail-list">
+                        <li>개인별 청음 스타일(절대/상대/혼합형) 전략 제시 및 맞춤 음원 제공</li>
+                        <li>좁은 음정 → 넓은 음정 → 검은건반 → 조성/무조 → 2성부/4성부</li>
+                        <li>단순 암기가 아닌 음정·조성·흐름을 음악적으로 이해하는 훈련</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="curriculum-category">
+                <h3>📖 화성학 (Harmony)</h3>
+                <div class="lesson-item">
+                    <div class="lesson-header">
+                        <span class="lesson-title">입시 및 심화 화성학 이론</span>
+                        <div class="lesson-info">작곡 입시 과정 포함 항목</div>
+                    </div>
+                    <div class="book-info">
+                        <strong>주요 교재:</strong> 김홍인 [화성학], 백병동 [화성학], 이건용 [반음계적 화성법]
+                    </div>
+                    <ul class="detail-list">
+                        <li><strong>기초~심화:</strong> 3화음 → 전위 → 변화화음 → 전조 → 증6화음 → 비화성음</li>
+                        <li><strong>분석:</strong> 실제 클래식 곡(모차르트, 슈베르트 등) 화성 분석</li>
+                        <li><strong>실습:</strong> 소프라노·베이스 화성 문제 풀이 및 주제적 구성 풀이</li>
+                        <li><strong>특징:</strong> 이론 암기가 아닌 실제 소리와 작품 속 화성을 연결하는 학습</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="curriculum-category">
+                <h3>🎹 피아노 (Piano)</h3>
+                <div class="piano-grid">
+                    <div class="lesson-item">
+                        <div class="lesson-header">
+                            <span class="lesson-title">③ 6세~초등 취미 레슨</span>
+                            <div class="lesson-info"><strong>40분 / 3.5만원</strong></div>
+                        </div>
+                        <ul class="detail-list">
+                            <li>표현하는 즐거움 중심 (전공 강사의 맞춤 편곡 악보 제공)</li>
+                            <li>학생의 멜로디 + 선생님의 즉흥 반주로 풍성한 사운드 경험</li>
+                            <li><strong>초급:</strong> 바이엘, 손 모양, 리듬, 음악 게임</li>
+                            <li><strong>중급:</strong> 체르니, 명곡집, 반주법, 하농</li>
+                            <li><strong>고급:</strong> 클래식·OST 연주, 선생님과 연탄곡</li>
+                        </ul>
+                    </div>
+                    <div class="lesson-item">
+                        <div class="lesson-header">
+                            <span class="lesson-title">④ 중학생~성인 취미 레슨</span>
+                            <div class="lesson-info"><strong>50분 / 4만원</strong></div>
+                        </div>
+                        <ul class="detail-list">
+                            <li>수강생 취향 저격 배우고 싶은 곡 중심 커리큘럼</li>
+                            <li>레벨 맞춤형 편곡 제공 및 선생님과 함께하는 듀엣 연주</li>
+                            <li><strong>초급:</strong> 성인을 위한 바이엘, 기본기·악보 읽기</li>
+                            <li><strong>중급:</strong> 체르니, 반주법, 기본기 강화</li>
+                            <li><strong>고급:</strong> 재즈/뉴에이지 반주법, 클래식 작품</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-box">
+            <p>수업은 예약제로 진행됩니다. 궁금하신 사항은 아래로 편하게 문의주세요.</p>
+            <div class="contact-info">
+                Kakao. minju_piano <br>
+                Tel. 010-2871-8481
+            </div>
+            <a href="https://open.kakao.com/o/sjw78sgi" class="kakao-btn" target="_blank">
+                레슨 상담 및 문의
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>조민주 음악 스튜디오 | Ewha Womans Univ. Composition</p>
+        <p class="copyright">© 2026 Min Ju Music. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
